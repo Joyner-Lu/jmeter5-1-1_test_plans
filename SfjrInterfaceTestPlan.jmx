@@ -1,0 +1,1215 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jmeterTestPlan version="1.2" properties="5.0" jmeter="5.1.1 r1855137">
+  <hashTree>
+    <TestPlan guiclass="TestPlanGui" testclass="TestPlan" testname="SfjrInterfaceTestPlan" enabled="true">
+      <stringProp name="TestPlan.comments"></stringProp>
+      <boolProp name="TestPlan.functional_mode">false</boolProp>
+      <boolProp name="TestPlan.serialize_threadgroups">false</boolProp>
+      <elementProp name="TestPlan.user_defined_variables" elementType="Arguments" guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+        <collectionProp name="Arguments.arguments"/>
+      </elementProp>
+      <stringProp name="TestPlan.user_define_classpath"></stringProp>
+    </TestPlan>
+    <hashTree>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="电子抵账发票2.0接口测试" enabled="true">
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <stringProp name="LoopController.loops">5</stringProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.num_threads">1</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">1</stringProp>
+        <longProp name="ThreadGroup.start_time">1375525852000</longProp>
+        <longProp name="ThreadGroup.end_time">1375525852000</longProp>
+        <boolProp name="ThreadGroup.scheduler">false</boolProp>
+        <stringProp name="ThreadGroup.duration"></stringProp>
+        <stringProp name="ThreadGroup.delay"></stringProp>
+      </ThreadGroup>
+      <hashTree>
+        <ConfigTestElement guiclass="HttpDefaultsGui" testclass="ConfigTestElement" testname="请求相关参数配置-HTTP Request Defaults" enabled="true">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+            <collectionProp name="Arguments.arguments"/>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">${host}</stringProp>
+          <stringProp name="HTTPSampler.port">${port}</stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">${path}</stringProp>
+          <stringProp name="HTTPSampler.concurrentPool">4</stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </ConfigTestElement>
+        <hashTree/>
+        <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="自定义变量配置" enabled="true">
+          <collectionProp name="Arguments.arguments">
+            <elementProp name="host" elementType="Argument">
+              <stringProp name="Argument.name">host</stringProp>
+              <stringProp name="Argument.value">dzswj.sn-n-tax.gov.cn</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="port" elementType="Argument">
+              <stringProp name="Argument.name">port</stringProp>
+              <stringProp name="Argument.value">8002</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="path" elementType="Argument">
+              <stringProp name="Argument.name">path</stringProp>
+              <stringProp name="Argument.value">/xxmh/webservices/sfjrService?wsdl</stringProp>
+              <stringProp name="Argument.desc">请求路径</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="jrcs_user" elementType="Argument">
+              <stringProp name="Argument.name">jrcs_user</stringProp>
+              <stringProp name="Argument.value">kfpt</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+              <stringProp name="Argument.desc">接入厂商</stringProp>
+            </elementProp>
+            <elementProp name="jrcs_pwd" elementType="Argument">
+              <stringProp name="Argument.name">jrcs_pwd</stringProp>
+              <stringProp name="Argument.value">${__desEncryptBase64(kfpt@2018,foresee2018,${__time()})}</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+              <stringProp name="Argument.desc">接入厂商密码</stringProp>
+            </elementProp>
+            <elementProp name="dlsjMillis" elementType="Argument">
+              <stringProp name="Argument.name">dlsjMillis</stringProp>
+              <stringProp name="Argument.value">${__time()}</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="sjly" elementType="Argument">
+              <stringProp name="Argument.name">sjly</stringProp>
+              <stringProp name="Argument.value">2</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+              <stringProp name="Argument.desc">受理类型，陕西的必须是2，本地测试是0</stringProp>
+            </elementProp>
+            <elementProp name="yhzh" elementType="Argument">
+              <stringProp name="Argument.name">yhzh</stringProp>
+              <stringProp name="Argument.value">91610326921526605Y</stringProp>
+              <stringProp name="Argument.desc">用户账号-登录局端</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="yhmm" elementType="Argument">
+              <stringProp name="Argument.name">yhmm</stringProp>
+              <stringProp name="Argument.value">${__desEncryptBase64(Abcd1234,foreseedzswj_2017)}</stringProp>
+              <stringProp name="Argument.desc">用户密码-登录局端</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="cxlx" elementType="Argument">
+              <stringProp name="Argument.name">cxlx</stringProp>
+              <stringProp name="Argument.value">0</stringProp>
+              <stringProp name="Argument.desc">查询类型，0是购方，1是销方</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="fplxdm" elementType="Argument">
+              <stringProp name="Argument.name">fplxdm</stringProp>
+              <stringProp name="Argument.value">01</stringProp>
+              <stringProp name="Argument.desc">记得开启相应的CSV，其他的要禁用掉，ZP_01(&quot;01&quot;, &quot;01zp.xlsx&quot;), JDC_03(&quot;03&quot;, &quot;03jdc.xlsx&quot;), PT_04(&quot;04&quot;, &quot;04pt.xlsx&quot;),     DZ_10(&quot;10&quot;, &quot;10dz.xlsx&quot;), JS_11(&quot;11&quot;, &quot;11js.xlsx&quot;), TXF_14(&quot;14&quot;, &quot;14txf.xlsx&quot;),     ECS_15(&quot;15&quot;, &quot;15ecs.xlsx&quot;), DRZ(&quot;drz&quot;, &quot;drz.xlsx&quot;), YRZ(&quot;yrz&quot;, &quot;yrz.xlsx&quot;)</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="kprqq" elementType="Argument">
+              <stringProp name="Argument.name">kprqq</stringProp>
+              <stringProp name="Argument.value">2018-06-01</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+              <stringProp name="Argument.desc">有些接口不需要用到，不用设置就可以了，设置了也没有关系</stringProp>
+            </elementProp>
+            <elementProp name="kprqz" elementType="Argument">
+              <stringProp name="Argument.name">kprqz</stringProp>
+              <stringProp name="Argument.value">2018-06-30</stringProp>
+              <stringProp name="Argument.desc">有些接口不需要用到，不用设置就可以了，设置了也没有关系</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+          </collectionProp>
+        </Arguments>
+        <hashTree/>
+        <CSVDataSet guiclass="TestBeanGUI" testclass="CSVDataSet" testname="专票-01-fp-CSV Data Set Config" enabled="true">
+          <stringProp name="delimiter">,</stringProp>
+          <stringProp name="fileEncoding"></stringProp>
+          <stringProp name="filename">01zp.csv</stringProp>
+          <boolProp name="ignoreFirstLine">false</boolProp>
+          <boolProp name="quotedData">false</boolProp>
+          <boolProp name="recycle">true</boolProp>
+          <stringProp name="shareMode">shareMode.all</stringProp>
+          <boolProp name="stopThread">false</boolProp>
+          <stringProp name="variableNames"></stringProp>
+          <stringProp name="TestPlan.comments">CSV Data Set Config-专票</stringProp>
+        </CSVDataSet>
+        <hashTree/>
+        <OnceOnlyController guiclass="OnceOnlyControllerGui" testclass="OnceOnlyController" testname="登录控制器-Once Only Controller" enabled="true"/>
+        <hashTree>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="登录" enabled="true">
+            <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+              <collectionProp name="Arguments.arguments">
+                <elementProp name="" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;&#xd;
+&#xd;
+&lt;S:Envelope xmlns:S=&quot;http://schemas.xmlsoap.org/soap/envelope/&quot; xmlns:SOAP-ENV=&quot;http://schemas.xmlsoap.org/soap/envelope/&quot;&gt;&#xd;
+  &lt;SOAP-ENV:Header&gt;&#xd;
+    &lt;wsse:Security xmlns:wsse=&quot;http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd&quot; xmlns:soap=&quot;http://schemas.xmlsoap.org/soap/envelope/&quot; soap:mustUnderstand=&quot;1&quot;&gt;&#xd;
+      &lt;wsse:UsernameToken xmlns:wsu=&quot;http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd&quot; wsu:Id=&quot;UsernameToken-9B7E030285A2E3436C155177116963366&quot;&gt;&#xd;
+        &lt;wsse:Username&gt;${jrcs_user}&lt;/wsse:Username&gt;&#xd;
+        &lt;wsse:Password Type=&quot;http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-username-token-profile-1.0#PasswordText&quot;&gt;${jrcs_pwd}&lt;/wsse:Password&gt;&#xd;
+      &lt;/wsse:UsernameToken&gt;&#xd;
+    &lt;/wsse:Security&gt;&#xd;
+  &lt;/SOAP-ENV:Header&gt;  &#xd;
+  &lt;S:Body xmlns:ns2=&quot;http://cn.gov.chinatax.gt3nf.service/&quot;&gt;&#xd;
+    &lt;ns2:doService&gt;&#xd;
+      &lt;bizXml&gt;&lt;![CDATA[&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&#xd;
+&lt;tiripPackage version=&quot;1&quot; xsi:type=&quot;tiripPackage&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns=&quot;http://www.chinatax.gov.cn/dataspec/&quot;&gt;&#xd;
+    &lt;service&gt;&#xd;
+        &lt;serviceId&gt;SJJZ.TY.DZSWJ.nsrdlyz&lt;/serviceId&gt;&#xd;
+        &lt;clientNo&gt;99999999999&lt;/clientNo&gt;&#xd;
+        &lt;tranSeq&gt;kfpt14690031550852002019081481422361&lt;/tranSeq&gt;&#xd;
+        &lt;repeatFlag&gt;0&lt;/repeatFlag&gt;&#xd;
+        &lt;tranReqDate&gt;2019-08-14&lt;/tranReqDate&gt;&#xd;
+    &lt;/service&gt;&#xd;
+    &lt;identity&gt;&#xd;
+        &lt;application&gt;&#xd;
+            &lt;applicationId&gt;21A3AB7D88C94D9C9FA002FD4CCE8043&lt;/applicationId&gt;&#xd;
+            &lt;supplier&gt;frse&lt;/supplier&gt;&#xd;
+            &lt;version&gt;1&lt;/version&gt;&#xd;
+            &lt;authenticateType&gt;2&lt;/authenticateType&gt;&#xd;
+            &lt;password/&gt;&#xd;
+            &lt;cert/&gt;&#xd;
+        &lt;/application&gt;&#xd;
+        &lt;customer&gt;&#xd;
+            &lt;customerId/&gt;&#xd;
+            &lt;authenticateType&gt;2&lt;/authenticateType&gt;&#xd;
+            &lt;password/&gt;&#xd;
+            &lt;cert/&gt;&#xd;
+            &lt;nsrsbh/&gt;&#xd;
+            &lt;djxh/&gt;&#xd;
+        &lt;/customer&gt;&#xd;
+    &lt;/identity&gt;&#xd;
+    &lt;routerSession&gt;&#xd;
+        &lt;paramList&gt;&#xd;
+            &lt;name&gt;SENDER&lt;/name&gt;&#xd;
+            &lt;value/&gt;&#xd;
+        &lt;/paramList&gt;&#xd;
+    &lt;/routerSession&gt;&#xd;
+    &lt;signData&gt;&#xd;
+        &lt;signType&gt;0&lt;/signType&gt;&#xd;
+        &lt;signSource&gt;000&lt;/signSource&gt;&#xd;
+        &lt;signValue&gt;000&lt;/signValue&gt;&#xd;
+    &lt;/signData&gt;&#xd;
+    &lt;businessContent&gt;&#xd;
+        &lt;subPackage&gt;&#xd;
+            &lt;id&gt;1&lt;/id&gt;&#xd;
+            &lt;content&gt;&lt;![CDATA[&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;taxML xsi:type=&quot;NfnsrdlyzRequest&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xmlns=&quot;http://www.chinatax.gov.cn/dataspec/&quot; xmlbh=&quot;&quot; xmlmc=&quot;&quot; bbh=&quot;&quot;&gt;&#xd;
+                &lt;hhid&gt;&lt;/hhid&gt;&#xd;
+                &lt;yhzh&gt;${yhzh}&lt;/yhzh&gt;&#xd;
+                &lt;authenticateType&gt;2&lt;/authenticateType&gt;&#xd;
+                &lt;yhmm&gt;${yhmm}&lt;/yhmm&gt;&#xd;
+                &lt;dlsj&gt;${dlsjMillis}&lt;/dlsj&gt;&#xd;
+                &lt;dlsj_str&gt;&lt;/dlsj_str&gt;&#xd;
+                &lt;sjly&gt;${sjly}&lt;/sjly&gt;&#xd;
+                &lt;sffhyhxx&gt;Y&lt;/sffhyhxx&gt;&#xd;
+                &lt;cert&gt;（认证类型为ca时，必须）证书&lt;/cert&gt;&#xd;
+                &lt;random&gt;（认证类型为ca时，必须）证书随机数&lt;/random&gt;&#xd;
+                &lt;signValue&gt;（认证类型为ca时，必须）签名值&lt;/signValue&gt;&#xd;
+                &lt;caType&gt;（认证类型为ca时，必须）ca类型&lt;/caType&gt;&#xd;
+            &lt;/taxML&gt;]]]]&gt;&gt;&lt;![CDATA[&lt;/content&gt;&#xd;
+        &lt;/subPackage&gt;&#xd;
+    &lt;/businessContent&gt;&#xd;
+&lt;/tiripPackage&gt;]]&gt;&lt;/bizXml&gt;&#xd;
+    &lt;/ns2:doService&gt;&#xd;
+  &lt;/S:Body&gt;&#xd;
+&lt;/S:Envelope&gt;&#xd;
+</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+              </collectionProp>
+            </elementProp>
+            <stringProp name="HTTPSampler.domain"></stringProp>
+            <stringProp name="HTTPSampler.port"></stringProp>
+            <stringProp name="HTTPSampler.protocol"></stringProp>
+            <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+            <stringProp name="HTTPSampler.path"></stringProp>
+            <stringProp name="HTTPSampler.method">POST</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          </HTTPSamplerProxy>
+          <hashTree>
+            <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+              <collectionProp name="HeaderManager.headers">
+                <elementProp name="" elementType="Header">
+                  <stringProp name="Header.name">Content-Type</stringProp>
+                  <stringProp name="Header.value">text/xml; charset=utf-8</stringProp>
+                </elementProp>
+                <elementProp name="" elementType="Header">
+                  <stringProp name="Header.name">SOAPAction</stringProp>
+                  <stringProp name="Header.value">&quot;&quot;</stringProp>
+                </elementProp>
+              </collectionProp>
+            </HeaderManager>
+            <hashTree/>
+            <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
+              <collectionProp name="Asserion.test_strings">
+                <stringProp name="607796817">sessionId</stringProp>
+              </collectionProp>
+              <stringProp name="Assertion.custom_message"></stringProp>
+              <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+              <boolProp name="Assertion.assume_success">false</boolProp>
+              <intProp name="Assertion.test_type">2</intProp>
+            </ResponseAssertion>
+            <hashTree/>
+            <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="获取sessionId-Regular Expression Extractor" enabled="true">
+              <stringProp name="RegexExtractor.useHeaders">false</stringProp>
+              <stringProp name="RegexExtractor.refname">sessionId</stringProp>
+              <stringProp name="RegexExtractor.regex">sessionId&amp;amp;gt;(.*?)&amp;amp;lt;/sessionId</stringProp>
+              <stringProp name="RegexExtractor.template">$1$</stringProp>
+              <stringProp name="RegexExtractor.default">未匹配</stringProp>
+              <stringProp name="RegexExtractor.match_number">1</stringProp>
+            </RegexExtractor>
+            <hashTree/>
+          </hashTree>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="接口1-测试发票简要信息单票查询_00.FP.FPXX.DZSWJCX.DZDZDZFPJYXXCX_100120190715140143194" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;&#xd;
+&#xd;
+&lt;S:Envelope xmlns:S=&quot;http://schemas.xmlsoap.org/soap/envelope/&quot; xmlns:SOAP-ENV=&quot;http://schemas.xmlsoap.org/soap/envelope/&quot;&gt;&#xd;
+  &lt;SOAP-ENV:Header&gt;&#xd;
+    &lt;wsse:Security xmlns:wsse=&quot;http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd&quot; xmlns:soap=&quot;http://schemas.xmlsoap.org/soap/envelope/&quot; soap:mustUnderstand=&quot;1&quot;&gt;&#xd;
+      &lt;wsse:UsernameToken xmlns:wsu=&quot;http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd&quot; wsu:Id=&quot;UsernameToken-9B7E030285A2E3436C155177116963366&quot;&gt;&#xd;
+        &lt;wsse:Username&gt;${jrcs_user}&lt;/wsse:Username&gt;&#xd;
+        &lt;wsse:Password Type=&quot;http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-username-token-profile-1.0#PasswordText&quot;&gt;${jrcs_pwd}&lt;/wsse:Password&gt;&#xd;
+      &lt;/wsse:UsernameToken&gt;&#xd;
+    &lt;/wsse:Security&gt;&#xd;
+  &lt;/SOAP-ENV:Header&gt;  &#xd;
+  &lt;S:Body xmlns:ns2=&quot;http://cn.gov.chinatax.gt3nf.service/&quot;&gt;&#xd;
+    &lt;ns2:doService&gt;&#xd;
+      &lt;bizXml&gt;&lt;![CDATA[&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&#xd;
+&lt;tiripPackage version=&quot;1&quot; xsi:type=&quot;tiripPackage&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns=&quot;http://www.chinatax.gov.cn/dataspec/&quot;&gt;&#xd;
+    &lt;sessionId&gt;${sessionId}&lt;/sessionId&gt;&#xd;
+    &lt;service&gt;&#xd;
+        &lt;serviceId&gt;00.FP.FPXX.DZSWJCX.DZDZDZFPJYXXCX&lt;/serviceId&gt;&#xd;
+        &lt;clientNo&gt;99999999999&lt;/clientNo&gt;&#xd;
+        &lt;tranSeq&gt;${tranSeq}&lt;/tranSeq&gt;&#xd;
+        &lt;repeatFlag&gt;0&lt;/repeatFlag&gt;&#xd;
+        &lt;tranReqDate&gt;${__time(YMD,)}&lt;/tranReqDate&gt;&#xd;
+    &lt;/service&gt;&#xd;
+    &lt;identity&gt;&#xd;
+        &lt;application&gt;&#xd;
+            &lt;applicationId&gt;kfpt&lt;/applicationId&gt;&#xd;
+            &lt;supplier&gt;kfpt&lt;/supplier&gt;&#xd;
+            &lt;version&gt;1&lt;/version&gt;&#xd;
+            &lt;authenticateType&gt;2&lt;/authenticateType&gt;&#xd;
+            &lt;cert/&gt;&#xd;
+            &lt;password/&gt;&#xd;
+        &lt;/application&gt;&#xd;
+        &lt;customer&gt;&#xd;
+            &lt;customerId&gt;91110302562134916R&lt;/customerId&gt;&#xd;
+            &lt;authenticateType&gt;2&lt;/authenticateType&gt;&#xd;
+            &lt;password/&gt;&#xd;
+            &lt;cert/&gt;&#xd;
+            &lt;nsrsbh&gt;${yhzh}&lt;/nsrsbh&gt;&#xd;
+            &lt;djxh/&gt;&#xd;
+        &lt;/customer&gt;&#xd;
+    &lt;/identity&gt;&#xd;
+    &lt;contentControl/&gt;&#xd;
+    &lt;businessContent&gt;&#xd;
+        &lt;subPackage&gt;&#xd;
+            &lt;id&gt;1&lt;/id&gt;&#xd;
+            &lt;content&gt;{&#xd;
+  &quot;pagesize&quot;: &quot;10&quot;,&#xd;
+  &quot;currpage&quot;: &quot;1&quot;,&#xd;
+  &quot;prams&quot;: {&#xd;
+    &quot;fpdm&quot;: &quot;${FPDM}&quot;,&#xd;
+    &quot;fphm&quot;: &quot;${FPHM}&quot;,&#xd;
+    &quot;kprq&quot;: &quot;${KPRQ}&quot;,&#xd;
+    &quot;fplxdm&quot;: &quot;${fplxdm}&quot;,&#xd;
+    &quot;ywfqdm&quot;: &quot;${ywfqdm}&quot;&#xd;
+  }&#xd;
+}&lt;/content&gt;&#xd;
+        &lt;/subPackage&gt;&#xd;
+    &lt;/businessContent&gt;&#xd;
+&lt;/tiripPackage&gt;]]&gt;&lt;/bizXml&gt;&#xd;
+    &lt;/ns2:doService&gt;&#xd;
+  &lt;/S:Body&gt;&#xd;
+&lt;/S:Envelope&gt;&#xd;
+</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain"></stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path"></stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <JSR223PreProcessor guiclass="TestBeanGUI" testclass="JSR223PreProcessor" testname="设置交易流水号JSR223 PreProcessor" enabled="true">
+            <stringProp name="scriptLanguage">java</stringProp>
+            <stringProp name="parameters"></stringProp>
+            <stringProp name="filename"></stringProp>
+            <stringProp name="cacheKey">true</stringProp>
+            <stringProp name="script">import java.text.SimpleDateFormat;
+
+public long generate(int n) {
+    String temp = &quot;1&quot;;
+    for (int i = 1; i &lt; n; i++) {
+        temp += &quot;0&quot;;
+    }
+    long randomNumber2 = (long) ((Math.random() * 9 + 1) * Long.valueOf(temp));
+    return randomNumber2;
+}
+
+
+String jrcsUser = vars.get(&quot;jrcs_user&quot;);
+Date now = new Date();
+SimpleDateFormat simpleDateFormat = new SimpleDateFormat(&quot;yyyyMMdd&quot;);
+String nowDateStr = simpleDateFormat.format(now);
+String randomNumber1 = generate(14) + &quot;&quot;;
+long randomNumber2 = generate(8);
+
+String tranSeq = jrcsUser + randomNumber1 + &quot;00&quot; + nowDateStr + randomNumber2;
+vars.put(&quot;tranSeq&quot;,tranSeq);</stringProp>
+          </JSR223PreProcessor>
+          <hashTree/>
+          <JSR223PreProcessor guiclass="TestBeanGUI" testclass="JSR223PreProcessor" testname="处理发票信息-JSR223 PreProcessor" enabled="true">
+            <stringProp name="scriptLanguage">java</stringProp>
+            <stringProp name="parameters"></stringProp>
+            <stringProp name="filename"></stringProp>
+            <stringProp name="cacheKey">true</stringProp>
+            <stringProp name="script">String GF = &quot;0&quot;;//购方
+String XF = &quot;1&quot;;//销售方
+
+String cxlx = vars.get(&quot;cxlx&quot;);
+String nsrsbh = &quot;&quot;;
+
+if (GF.equals(cxlx)) {
+	nsrsbh = vars.get(&quot;GFSBH&quot;);
+} else {
+	nsrsbh = vars.get(&quot;XFSBH&quot;);	
+}
+
+//发起方代码，暂时还没有校验，直接给纳税人识别号即可
+String ywfqdm = nsrsbh;
+vars.put(&quot;ywfqdm&quot;, ywfqdm);
+vars.put(&quot;nsrsbh&quot;, nsrsbh);</stringProp>
+          </JSR223PreProcessor>
+          <hashTree/>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="1088402475">请先登录</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.custom_message"></stringProp>
+            <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">6</intProp>
+          </ResponseAssertion>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="接口2-测试发票简要信息批量查询_00.FP.FPXX.DZSWJCX.DZDZPLFPJYXXCX_100120190715140346617" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;&#xd;
+&#xd;
+&lt;S:Envelope xmlns:S=&quot;http://schemas.xmlsoap.org/soap/envelope/&quot; xmlns:SOAP-ENV=&quot;http://schemas.xmlsoap.org/soap/envelope/&quot;&gt;&#xd;
+  &lt;SOAP-ENV:Header&gt;&#xd;
+    &lt;wsse:Security xmlns:wsse=&quot;http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd&quot; xmlns:soap=&quot;http://schemas.xmlsoap.org/soap/envelope/&quot; soap:mustUnderstand=&quot;1&quot;&gt;&#xd;
+      &lt;wsse:UsernameToken xmlns:wsu=&quot;http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd&quot; wsu:Id=&quot;UsernameToken-9B7E030285A2E3436C155177116963366&quot;&gt;&#xd;
+        &lt;wsse:Username&gt;${jrcs_user}&lt;/wsse:Username&gt;&#xd;
+        &lt;wsse:Password Type=&quot;http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-username-token-profile-1.0#PasswordText&quot;&gt;${jrcs_pwd}&lt;/wsse:Password&gt;&#xd;
+      &lt;/wsse:UsernameToken&gt;&#xd;
+    &lt;/wsse:Security&gt;&#xd;
+  &lt;/SOAP-ENV:Header&gt;  &#xd;
+  &lt;S:Body xmlns:ns2=&quot;http://cn.gov.chinatax.gt3nf.service/&quot;&gt;&#xd;
+    &lt;ns2:doService&gt;&#xd;
+      &lt;bizXml&gt;&lt;![CDATA[&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&#xd;
+&lt;tiripPackage version=&quot;1&quot; xsi:type=&quot;tiripPackage&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns=&quot;http://www.chinatax.gov.cn/dataspec/&quot;&gt;&#xd;
+    &lt;sessionId&gt;${sessionId}&lt;/sessionId&gt;&#xd;
+    &lt;service&gt;&#xd;
+        &lt;serviceId&gt;00.FP.FPXX.DZSWJCX.DZDZPLFPJYXXCX&lt;/serviceId&gt;&#xd;
+        &lt;clientNo&gt;99999999999&lt;/clientNo&gt;&#xd;
+        &lt;tranSeq&gt;${tranSeq}&lt;/tranSeq&gt;&#xd;
+        &lt;repeatFlag&gt;0&lt;/repeatFlag&gt;&#xd;
+        &lt;tranReqDate&gt;${__time(YMD,)}&lt;/tranReqDate&gt;&#xd;
+    &lt;/service&gt;&#xd;
+    &lt;identity&gt;&#xd;
+        &lt;application&gt;&#xd;
+            &lt;applicationId&gt;kfpt&lt;/applicationId&gt;&#xd;
+            &lt;supplier&gt;kfpt&lt;/supplier&gt;&#xd;
+            &lt;version&gt;1&lt;/version&gt;&#xd;
+            &lt;authenticateType&gt;2&lt;/authenticateType&gt;&#xd;
+            &lt;cert/&gt;&#xd;
+            &lt;password/&gt;&#xd;
+        &lt;/application&gt;&#xd;
+        &lt;customer&gt;&#xd;
+            &lt;customerId&gt;91110302562134916R&lt;/customerId&gt;&#xd;
+            &lt;authenticateType&gt;2&lt;/authenticateType&gt;&#xd;
+            &lt;password/&gt;&#xd;
+            &lt;cert/&gt;&#xd;
+            &lt;nsrsbh&gt;${yhzh}&lt;/nsrsbh&gt;&#xd;
+            &lt;djxh/&gt;&#xd;
+        &lt;/customer&gt;&#xd;
+    &lt;/identity&gt;&#xd;
+    &lt;contentControl/&gt;&#xd;
+    &lt;businessContent&gt;&#xd;
+        &lt;subPackage&gt;&#xd;
+            &lt;id&gt;1&lt;/id&gt;&#xd;
+            &lt;content&gt;{&#xd;
+  &quot;pagesize&quot;: &quot;15&quot;,&#xd;
+  &quot;currpage&quot;: &quot;1&quot;,&#xd;
+  &quot;prams&quot;: {&#xd;
+    &quot;cxlx&quot;: &quot;${cxlx}&quot;,&#xd;
+    &quot;nsrsbh&quot;: &quot;${nsrsbh}&quot;,&#xd;
+    &quot;kprqq&quot;: &quot;${kprqq}&quot;,&#xd;
+    &quot;kprqz&quot;: &quot;${kprqz}&quot;,&#xd;
+    &quot;fplxdm&quot;: &quot;${fplxdm}&quot;,&#xd;
+    &quot;ywfqdm&quot;: &quot;${ywfqdm}&quot;&#xd;
+  }&#xd;
+}&lt;/content&gt;&#xd;
+        &lt;/subPackage&gt;&#xd;
+    &lt;/businessContent&gt;&#xd;
+&lt;/tiripPackage&gt;]]&gt;&lt;/bizXml&gt;&#xd;
+    &lt;/ns2:doService&gt;&#xd;
+  &lt;/S:Body&gt;&#xd;
+&lt;/S:Envelope&gt;&#xd;
+</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain"></stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path"></stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <JSR223PreProcessor guiclass="TestBeanGUI" testclass="JSR223PreProcessor" testname="设置交易流水号JSR223 PreProcessor" enabled="true">
+            <stringProp name="scriptLanguage">java</stringProp>
+            <stringProp name="parameters"></stringProp>
+            <stringProp name="filename"></stringProp>
+            <stringProp name="cacheKey">true</stringProp>
+            <stringProp name="script">import java.text.SimpleDateFormat;
+
+public long generate(int n) {
+    String temp = &quot;1&quot;;
+    for (int i = 1; i &lt; n; i++) {
+        temp += &quot;0&quot;;
+    }
+    long randomNumber2 = (long) ((Math.random() * 9 + 1) * Long.valueOf(temp));
+    return randomNumber2;
+}
+
+
+String jrcsUser = vars.get(&quot;jrcs_user&quot;);
+Date now = new Date();
+SimpleDateFormat simpleDateFormat = new SimpleDateFormat(&quot;yyyyMMdd&quot;);
+String nowDateStr = simpleDateFormat.format(now);
+String randomNumber1 = generate(14) + &quot;&quot;;
+long randomNumber2 = generate(8);
+
+String tranSeq = jrcsUser + randomNumber1 + &quot;00&quot; + nowDateStr + randomNumber2;
+vars.put(&quot;tranSeq&quot;,tranSeq);</stringProp>
+          </JSR223PreProcessor>
+          <hashTree/>
+          <JSR223PreProcessor guiclass="TestBeanGUI" testclass="JSR223PreProcessor" testname="处理发票信息-JSR223 PreProcessor" enabled="true">
+            <stringProp name="scriptLanguage">java</stringProp>
+            <stringProp name="parameters"></stringProp>
+            <stringProp name="filename"></stringProp>
+            <stringProp name="cacheKey">true</stringProp>
+            <stringProp name="script">String GF = &quot;0&quot;;//购方
+String XF = &quot;1&quot;;//销售方
+
+String cxlx = vars.get(&quot;cxlx&quot;);
+String nsrsbh = &quot;&quot;;
+
+if (GF.equals(cxlx)) {
+	nsrsbh = vars.get(&quot;GFSBH&quot;);
+} else {
+	nsrsbh = vars.get(&quot;XFSBH&quot;);	
+}
+
+//发起方代码，暂时还没有校验，直接给纳税人识别号即可
+String ywfqdm = nsrsbh;
+vars.put(&quot;ywfqdm&quot;, ywfqdm);
+vars.put(&quot;nsrsbh&quot;, nsrsbh);
+</stringProp>
+          </JSR223PreProcessor>
+          <hashTree/>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="1088402475">请先登录</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.custom_message"></stringProp>
+            <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">6</intProp>
+          </ResponseAssertion>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="接口3-测试发票详细信息单票查询_00.FP.FPXX.DZSWJCX.DZDZDZFPXXXXCX_100120190716112714085" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;&#xd;
+&#xd;
+&lt;S:Envelope xmlns:S=&quot;http://schemas.xmlsoap.org/soap/envelope/&quot; xmlns:SOAP-ENV=&quot;http://schemas.xmlsoap.org/soap/envelope/&quot;&gt;&#xd;
+  &lt;SOAP-ENV:Header&gt;&#xd;
+    &lt;wsse:Security xmlns:wsse=&quot;http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd&quot; xmlns:soap=&quot;http://schemas.xmlsoap.org/soap/envelope/&quot; soap:mustUnderstand=&quot;1&quot;&gt;&#xd;
+      &lt;wsse:UsernameToken xmlns:wsu=&quot;http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd&quot; wsu:Id=&quot;UsernameToken-9B7E030285A2E3436C155177116963366&quot;&gt;&#xd;
+        &lt;wsse:Username&gt;${jrcs_user}&lt;/wsse:Username&gt;&#xd;
+        &lt;wsse:Password Type=&quot;http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-username-token-profile-1.0#PasswordText&quot;&gt;${jrcs_pwd}&lt;/wsse:Password&gt;&#xd;
+      &lt;/wsse:UsernameToken&gt;&#xd;
+    &lt;/wsse:Security&gt;&#xd;
+  &lt;/SOAP-ENV:Header&gt;  &#xd;
+  &lt;S:Body xmlns:ns2=&quot;http://cn.gov.chinatax.gt3nf.service/&quot;&gt;&#xd;
+    &lt;ns2:doService&gt;&#xd;
+      &lt;bizXml&gt;&lt;![CDATA[&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&#xd;
+&lt;tiripPackage version=&quot;1&quot; xsi:type=&quot;tiripPackage&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns=&quot;http://www.chinatax.gov.cn/dataspec/&quot;&gt;&#xd;
+    &lt;sessionId&gt;${sessionId}&lt;/sessionId&gt;&#xd;
+    &lt;service&gt;&#xd;
+        &lt;serviceId&gt;00.FP.FPXX.DZSWJCX.DZDZDZFPXXXXCX&lt;/serviceId&gt;&#xd;
+        &lt;clientNo&gt;99999999999&lt;/clientNo&gt;&#xd;
+        &lt;tranSeq&gt;${tranSeq}&lt;/tranSeq&gt;&#xd;
+        &lt;repeatFlag&gt;0&lt;/repeatFlag&gt;&#xd;
+        &lt;tranReqDate&gt;${__time(YMD,)}&lt;/tranReqDate&gt;&#xd;
+    &lt;/service&gt;&#xd;
+    &lt;identity&gt;&#xd;
+        &lt;application&gt;&#xd;
+            &lt;applicationId&gt;kfpt&lt;/applicationId&gt;&#xd;
+            &lt;supplier&gt;kfpt&lt;/supplier&gt;&#xd;
+            &lt;version&gt;1&lt;/version&gt;&#xd;
+            &lt;authenticateType&gt;2&lt;/authenticateType&gt;&#xd;
+            &lt;cert/&gt;&#xd;
+            &lt;password/&gt;&#xd;
+        &lt;/application&gt;&#xd;
+        &lt;customer&gt;&#xd;
+            &lt;customerId&gt;91110302562134916R&lt;/customerId&gt;&#xd;
+            &lt;authenticateType&gt;2&lt;/authenticateType&gt;&#xd;
+            &lt;password/&gt;&#xd;
+            &lt;cert/&gt;&#xd;
+            &lt;nsrsbh&gt;${yhzh}&lt;/nsrsbh&gt;&#xd;
+            &lt;djxh/&gt;&#xd;
+        &lt;/customer&gt;&#xd;
+    &lt;/identity&gt;&#xd;
+    &lt;contentControl/&gt;&#xd;
+    &lt;businessContent&gt;&#xd;
+        &lt;subPackage&gt;&#xd;
+            &lt;id&gt;1&lt;/id&gt;&#xd;
+            &lt;content&gt;{&#xd;
+  &quot;pagesize&quot;: &quot;10&quot;,&#xd;
+  &quot;currpage&quot;: &quot;1&quot;,&#xd;
+  &quot;prams&quot;: {&#xd;
+    &quot;fpdm&quot;: &quot;${FPDM}&quot;,&#xd;
+    &quot;fphm&quot;: &quot;${FPHM}&quot;,&#xd;
+    &quot;kprq&quot;: &quot;${KPRQ}&quot;,&#xd;
+    &quot;fplxdm&quot;: &quot;${fplxdm}&quot;,&#xd;
+    &quot;ywfqdm&quot;: &quot;${ywfqdm}&quot;&#xd;
+  }&#xd;
+}&lt;/content&gt;&#xd;
+        &lt;/subPackage&gt;&#xd;
+    &lt;/businessContent&gt;&#xd;
+&lt;/tiripPackage&gt;]]&gt;&lt;/bizXml&gt;&#xd;
+    &lt;/ns2:doService&gt;&#xd;
+  &lt;/S:Body&gt;&#xd;
+&lt;/S:Envelope&gt;&#xd;
+</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain"></stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path"></stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <JSR223PreProcessor guiclass="TestBeanGUI" testclass="JSR223PreProcessor" testname="设置交易流水号JSR223 PreProcessor" enabled="true">
+            <stringProp name="scriptLanguage">java</stringProp>
+            <stringProp name="parameters"></stringProp>
+            <stringProp name="filename"></stringProp>
+            <stringProp name="cacheKey">true</stringProp>
+            <stringProp name="script">import java.text.SimpleDateFormat;
+
+public long generate(int n) {
+    String temp = &quot;1&quot;;
+    for (int i = 1; i &lt; n; i++) {
+        temp += &quot;0&quot;;
+    }
+    long randomNumber2 = (long) ((Math.random() * 9 + 1) * Long.valueOf(temp));
+    return randomNumber2;
+}
+
+
+String jrcsUser = vars.get(&quot;jrcs_user&quot;);
+Date now = new Date();
+SimpleDateFormat simpleDateFormat = new SimpleDateFormat(&quot;yyyyMMdd&quot;);
+String nowDateStr = simpleDateFormat.format(now);
+String randomNumber1 = generate(14) + &quot;&quot;;
+long randomNumber2 = generate(8);
+
+String tranSeq = jrcsUser + randomNumber1 + &quot;00&quot; + nowDateStr + randomNumber2;
+vars.put(&quot;tranSeq&quot;,tranSeq);</stringProp>
+          </JSR223PreProcessor>
+          <hashTree/>
+          <JSR223PreProcessor guiclass="TestBeanGUI" testclass="JSR223PreProcessor" testname="处理发票信息-JSR223 PreProcessor" enabled="true">
+            <stringProp name="scriptLanguage">java</stringProp>
+            <stringProp name="parameters"></stringProp>
+            <stringProp name="filename"></stringProp>
+            <stringProp name="cacheKey">true</stringProp>
+            <stringProp name="script">String GF = &quot;0&quot;;//购方
+String XF = &quot;1&quot;;//销售方
+
+String cxlx = vars.get(&quot;cxlx&quot;);
+String nsrsbh = &quot;&quot;;
+
+if (GF.equals(cxlx)) {
+	nsrsbh = vars.get(&quot;GFSBH&quot;);
+} else {
+	nsrsbh = vars.get(&quot;XFSBH&quot;);	
+}
+
+//发起方代码，暂时还没有校验，直接给纳税人识别号即可
+String ywfqdm = nsrsbh;
+vars.put(&quot;ywfqdm&quot;, ywfqdm);
+vars.put(&quot;nsrsbh&quot;, nsrsbh);
+</stringProp>
+          </JSR223PreProcessor>
+          <hashTree/>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="1088402475">请先登录</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.custom_message"></stringProp>
+            <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">6</intProp>
+          </ResponseAssertion>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="接口4-测试发票详细信息批量查询_00.FP.FPXX.DZSWJCX.DZDZPLFPXXXXCX_100120190716112920132" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;&#xd;
+&#xd;
+&lt;S:Envelope xmlns:S=&quot;http://schemas.xmlsoap.org/soap/envelope/&quot; xmlns:SOAP-ENV=&quot;http://schemas.xmlsoap.org/soap/envelope/&quot;&gt;&#xd;
+  &lt;SOAP-ENV:Header&gt;&#xd;
+    &lt;wsse:Security xmlns:wsse=&quot;http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd&quot; xmlns:soap=&quot;http://schemas.xmlsoap.org/soap/envelope/&quot; soap:mustUnderstand=&quot;1&quot;&gt;&#xd;
+      &lt;wsse:UsernameToken xmlns:wsu=&quot;http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd&quot; wsu:Id=&quot;UsernameToken-9B7E030285A2E3436C155177116963366&quot;&gt;&#xd;
+        &lt;wsse:Username&gt;${jrcs_user}&lt;/wsse:Username&gt;&#xd;
+        &lt;wsse:Password Type=&quot;http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-username-token-profile-1.0#PasswordText&quot;&gt;${jrcs_pwd}&lt;/wsse:Password&gt;&#xd;
+      &lt;/wsse:UsernameToken&gt;&#xd;
+    &lt;/wsse:Security&gt;&#xd;
+  &lt;/SOAP-ENV:Header&gt;  &#xd;
+  &lt;S:Body xmlns:ns2=&quot;http://cn.gov.chinatax.gt3nf.service/&quot;&gt;&#xd;
+    &lt;ns2:doService&gt;&#xd;
+      &lt;bizXml&gt;&lt;![CDATA[&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&#xd;
+&lt;tiripPackage version=&quot;1&quot; xsi:type=&quot;tiripPackage&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns=&quot;http://www.chinatax.gov.cn/dataspec/&quot;&gt;&#xd;
+    &lt;sessionId&gt;${sessionId}&lt;/sessionId&gt;&#xd;
+    &lt;service&gt;&#xd;
+        &lt;serviceId&gt;00.FP.FPXX.DZSWJCX.DZDZPLFPXXXXCX&lt;/serviceId&gt;&#xd;
+        &lt;clientNo&gt;99999999999&lt;/clientNo&gt;&#xd;
+        &lt;tranSeq&gt;${tranSeq}&lt;/tranSeq&gt;&#xd;
+        &lt;repeatFlag&gt;0&lt;/repeatFlag&gt;&#xd;
+        &lt;tranReqDate&gt;${__time(YMD,)}&lt;/tranReqDate&gt;&#xd;
+    &lt;/service&gt;&#xd;
+    &lt;identity&gt;&#xd;
+        &lt;application&gt;&#xd;
+            &lt;applicationId&gt;kfpt&lt;/applicationId&gt;&#xd;
+            &lt;supplier&gt;kfpt&lt;/supplier&gt;&#xd;
+            &lt;version&gt;1&lt;/version&gt;&#xd;
+            &lt;authenticateType&gt;2&lt;/authenticateType&gt;&#xd;
+            &lt;cert/&gt;&#xd;
+            &lt;password/&gt;&#xd;
+        &lt;/application&gt;&#xd;
+        &lt;customer&gt;&#xd;
+            &lt;customerId&gt;91110302562134916R&lt;/customerId&gt;&#xd;
+            &lt;authenticateType&gt;2&lt;/authenticateType&gt;&#xd;
+            &lt;password/&gt;&#xd;
+            &lt;cert/&gt;&#xd;
+            &lt;nsrsbh&gt;${yhzh}&lt;/nsrsbh&gt;&#xd;
+            &lt;djxh/&gt;&#xd;
+        &lt;/customer&gt;&#xd;
+    &lt;/identity&gt;&#xd;
+    &lt;contentControl/&gt;&#xd;
+    &lt;businessContent&gt;&#xd;
+        &lt;subPackage&gt;&#xd;
+            &lt;id&gt;1&lt;/id&gt;&#xd;
+            &lt;content&gt;{&#xd;
+  &quot;pagesize&quot;: &quot;10&quot;,&#xd;
+  &quot;currpage&quot;: &quot;1&quot;,&#xd;
+  &quot;prams&quot;: {&#xd;
+    &quot;cxlx&quot;: &quot;${cxlx}&quot;,&#xd;
+    &quot;nsrsbh&quot;: &quot;${nsrsbh}&quot;,&#xd;
+    &quot;kprqq&quot;: &quot;${kprqq}&quot;,&#xd;
+    &quot;kprqz&quot;: &quot;${kprqz}&quot;,&#xd;
+    &quot;fplxdm&quot;: &quot;${fplxdm}&quot;,&#xd;
+    &quot;ywfqdm&quot;: &quot;${ywfqdm}&quot;&#xd;
+  }&#xd;
+}&lt;/content&gt;&#xd;
+        &lt;/subPackage&gt;&#xd;
+    &lt;/businessContent&gt;&#xd;
+&lt;/tiripPackage&gt;]]&gt;&lt;/bizXml&gt;&#xd;
+    &lt;/ns2:doService&gt;&#xd;
+  &lt;/S:Body&gt;&#xd;
+&lt;/S:Envelope&gt;&#xd;
+</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain"></stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path"></stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <JSR223PreProcessor guiclass="TestBeanGUI" testclass="JSR223PreProcessor" testname="设置交易流水号JSR223 PreProcessor" enabled="true">
+            <stringProp name="scriptLanguage">java</stringProp>
+            <stringProp name="parameters"></stringProp>
+            <stringProp name="filename"></stringProp>
+            <stringProp name="cacheKey">true</stringProp>
+            <stringProp name="script">import java.text.SimpleDateFormat;
+
+public long generate(int n) {
+    String temp = &quot;1&quot;;
+    for (int i = 1; i &lt; n; i++) {
+        temp += &quot;0&quot;;
+    }
+    long randomNumber2 = (long) ((Math.random() * 9 + 1) * Long.valueOf(temp));
+    return randomNumber2;
+}
+
+
+String jrcsUser = vars.get(&quot;jrcs_user&quot;);
+Date now = new Date();
+SimpleDateFormat simpleDateFormat = new SimpleDateFormat(&quot;yyyyMMdd&quot;);
+String nowDateStr = simpleDateFormat.format(now);
+String randomNumber1 = generate(14) + &quot;&quot;;
+long randomNumber2 = generate(8);
+
+String tranSeq = jrcsUser + randomNumber1 + &quot;00&quot; + nowDateStr + randomNumber2;
+vars.put(&quot;tranSeq&quot;,tranSeq);</stringProp>
+          </JSR223PreProcessor>
+          <hashTree/>
+          <JSR223PreProcessor guiclass="TestBeanGUI" testclass="JSR223PreProcessor" testname="处理发票信息-JSR223 PreProcessor" enabled="true">
+            <stringProp name="scriptLanguage">java</stringProp>
+            <stringProp name="parameters"></stringProp>
+            <stringProp name="filename"></stringProp>
+            <stringProp name="cacheKey">true</stringProp>
+            <stringProp name="script">String GF = &quot;0&quot;;//购方
+String XF = &quot;1&quot;;//销售方
+
+String cxlx = vars.get(&quot;cxlx&quot;);
+String nsrsbh = &quot;&quot;;
+
+if (GF.equals(cxlx)) {
+	nsrsbh = vars.get(&quot;GFSBH&quot;);
+} else {
+	nsrsbh = vars.get(&quot;XFSBH&quot;);	
+}
+
+//发起方代码，暂时还没有校验，直接给纳税人识别号即可
+String ywfqdm = nsrsbh;
+vars.put(&quot;ywfqdm&quot;, ywfqdm);
+vars.put(&quot;nsrsbh&quot;, nsrsbh);
+</stringProp>
+          </JSR223PreProcessor>
+          <hashTree/>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="1088402475">请先登录</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.custom_message"></stringProp>
+            <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">6</intProp>
+          </ResponseAssertion>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="接口5-测试货物信息查询_00.FP.FPXX.DZSWJCX.DZDZDZHWXXCX_100120190716162050836" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;&#xd;
+&#xd;
+&lt;S:Envelope xmlns:S=&quot;http://schemas.xmlsoap.org/soap/envelope/&quot; xmlns:SOAP-ENV=&quot;http://schemas.xmlsoap.org/soap/envelope/&quot;&gt;&#xd;
+  &lt;SOAP-ENV:Header&gt;&#xd;
+    &lt;wsse:Security xmlns:wsse=&quot;http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd&quot; xmlns:soap=&quot;http://schemas.xmlsoap.org/soap/envelope/&quot; soap:mustUnderstand=&quot;1&quot;&gt;&#xd;
+      &lt;wsse:UsernameToken xmlns:wsu=&quot;http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd&quot; wsu:Id=&quot;UsernameToken-9B7E030285A2E3436C155177116963366&quot;&gt;&#xd;
+        &lt;wsse:Username&gt;${jrcs_user}&lt;/wsse:Username&gt;&#xd;
+        &lt;wsse:Password Type=&quot;http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-username-token-profile-1.0#PasswordText&quot;&gt;${jrcs_pwd}&lt;/wsse:Password&gt;&#xd;
+      &lt;/wsse:UsernameToken&gt;&#xd;
+    &lt;/wsse:Security&gt;&#xd;
+  &lt;/SOAP-ENV:Header&gt;  &#xd;
+  &lt;S:Body xmlns:ns2=&quot;http://cn.gov.chinatax.gt3nf.service/&quot;&gt;&#xd;
+    &lt;ns2:doService&gt;&#xd;
+      &lt;bizXml&gt;&lt;![CDATA[&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&#xd;
+&lt;tiripPackage version=&quot;1&quot; xsi:type=&quot;tiripPackage&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns=&quot;http://www.chinatax.gov.cn/dataspec/&quot;&gt;&#xd;
+    &lt;sessionId&gt;${sessionId}&lt;/sessionId&gt;&#xd;
+    &lt;service&gt;&#xd;
+        &lt;serviceId&gt;00.FP.FPXX.DZSWJCX.DZDZDZHWXXCX&lt;/serviceId&gt;&#xd;
+        &lt;clientNo&gt;99999999999&lt;/clientNo&gt;&#xd;
+        &lt;tranSeq&gt;${tranSeq}&lt;/tranSeq&gt;&#xd;
+        &lt;repeatFlag&gt;0&lt;/repeatFlag&gt;&#xd;
+        &lt;tranReqDate&gt;${__time(YMD,)}&lt;/tranReqDate&gt;&#xd;
+    &lt;/service&gt;&#xd;
+    &lt;identity&gt;&#xd;
+        &lt;application&gt;&#xd;
+            &lt;applicationId&gt;kfpt&lt;/applicationId&gt;&#xd;
+            &lt;supplier&gt;kfpt&lt;/supplier&gt;&#xd;
+            &lt;version&gt;1&lt;/version&gt;&#xd;
+            &lt;authenticateType&gt;2&lt;/authenticateType&gt;&#xd;
+            &lt;cert/&gt;&#xd;
+            &lt;password/&gt;&#xd;
+        &lt;/application&gt;&#xd;
+        &lt;customer&gt;&#xd;
+            &lt;customerId&gt;91110302562134916R&lt;/customerId&gt;&#xd;
+            &lt;authenticateType&gt;2&lt;/authenticateType&gt;&#xd;
+            &lt;password/&gt;&#xd;
+            &lt;cert/&gt;&#xd;
+            &lt;nsrsbh&gt;${yhzh}&lt;/nsrsbh&gt;&#xd;
+            &lt;djxh/&gt;&#xd;
+        &lt;/customer&gt;&#xd;
+    &lt;/identity&gt;&#xd;
+    &lt;contentControl/&gt;&#xd;
+    &lt;businessContent&gt;&#xd;
+        &lt;subPackage&gt;&#xd;
+            &lt;id&gt;1&lt;/id&gt;&#xd;
+            &lt;content&gt;{&#xd;
+  &quot;pagesize&quot;: &quot;10&quot;,&#xd;
+  &quot;currpage&quot;: &quot;1&quot;,&#xd;
+  &quot;prams&quot;: {&#xd;
+    &quot;fpdm&quot;: &quot;${FPDM}&quot;,&#xd;
+    &quot;fphm&quot;: &quot;${FPHM}&quot;,&#xd;
+    &quot;kprq&quot;: &quot;${KPRQ}&quot;,&#xd;
+    &quot;fplxdm&quot;: &quot;${fplxdm}&quot;,&#xd;
+    &quot;spbm&quot;:&quot;${spbm}&quot;,&#xd;
+    &quot;ywfqdm&quot;: &quot;${ywfqdm}&quot;&#xd;
+  }&#xd;
+}&lt;/content&gt;&#xd;
+        &lt;/subPackage&gt;&#xd;
+    &lt;/businessContent&gt;&#xd;
+&lt;/tiripPackage&gt;]]&gt;&lt;/bizXml&gt;&#xd;
+    &lt;/ns2:doService&gt;&#xd;
+  &lt;/S:Body&gt;&#xd;
+&lt;/S:Envelope&gt;&#xd;
+</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain"></stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path"></stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <JSR223PreProcessor guiclass="TestBeanGUI" testclass="JSR223PreProcessor" testname="设置交易流水号JSR223 PreProcessor" enabled="true">
+            <stringProp name="scriptLanguage">java</stringProp>
+            <stringProp name="parameters"></stringProp>
+            <stringProp name="filename"></stringProp>
+            <stringProp name="cacheKey">true</stringProp>
+            <stringProp name="script">import java.text.SimpleDateFormat;
+
+public long generate(int n) {
+    String temp = &quot;1&quot;;
+    for (int i = 1; i &lt; n; i++) {
+        temp += &quot;0&quot;;
+    }
+    long randomNumber2 = (long) ((Math.random() * 9 + 1) * Long.valueOf(temp));
+    return randomNumber2;
+}
+
+
+String jrcsUser = vars.get(&quot;jrcs_user&quot;);
+Date now = new Date();
+SimpleDateFormat simpleDateFormat = new SimpleDateFormat(&quot;yyyyMMdd&quot;);
+String nowDateStr = simpleDateFormat.format(now);
+String randomNumber1 = generate(14) + &quot;&quot;;
+long randomNumber2 = generate(8);
+
+String tranSeq = jrcsUser + randomNumber1 + &quot;00&quot; + nowDateStr + randomNumber2;
+vars.put(&quot;tranSeq&quot;,tranSeq);</stringProp>
+          </JSR223PreProcessor>
+          <hashTree/>
+          <JSR223PreProcessor guiclass="TestBeanGUI" testclass="JSR223PreProcessor" testname="处理发票信息-JSR223 PreProcessor" enabled="true">
+            <stringProp name="scriptLanguage">java</stringProp>
+            <stringProp name="parameters"></stringProp>
+            <stringProp name="filename"></stringProp>
+            <stringProp name="cacheKey">true</stringProp>
+            <stringProp name="script">String GF = &quot;0&quot;;//购方
+String XF = &quot;1&quot;;//销售方
+
+String cxlx = vars.get(&quot;cxlx&quot;);
+String nsrsbh = &quot;&quot;;
+
+if (GF.equals(cxlx)) {
+	nsrsbh = vars.get(&quot;GFSBH&quot;);
+} else {
+	nsrsbh = vars.get(&quot;XFSBH&quot;);	
+}
+
+//发起方代码，暂时还没有校验，直接给纳税人识别号即可
+String ywfqdm = nsrsbh;
+vars.put(&quot;ywfqdm&quot;, ywfqdm);
+vars.put(&quot;nsrsbh&quot;, nsrsbh);
+//商品编码非必传参数
+vars.put(&quot;spbm&quot;,&quot;&quot;);</stringProp>
+          </JSR223PreProcessor>
+          <hashTree/>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="1088402475">请先登录</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.custom_message"></stringProp>
+            <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">6</intProp>
+          </ResponseAssertion>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="接口6-测试认证信息查询_00.FP.FPXX.DZSWJCX.DZDZRZXXCX_100120190717092627302" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;&#xd;
+&#xd;
+&lt;S:Envelope xmlns:S=&quot;http://schemas.xmlsoap.org/soap/envelope/&quot; xmlns:SOAP-ENV=&quot;http://schemas.xmlsoap.org/soap/envelope/&quot;&gt;&#xd;
+  &lt;SOAP-ENV:Header&gt;&#xd;
+    &lt;wsse:Security xmlns:wsse=&quot;http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd&quot; xmlns:soap=&quot;http://schemas.xmlsoap.org/soap/envelope/&quot; soap:mustUnderstand=&quot;1&quot;&gt;&#xd;
+      &lt;wsse:UsernameToken xmlns:wsu=&quot;http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd&quot; wsu:Id=&quot;UsernameToken-9B7E030285A2E3436C155177116963366&quot;&gt;&#xd;
+        &lt;wsse:Username&gt;${jrcs_user}&lt;/wsse:Username&gt;&#xd;
+        &lt;wsse:Password Type=&quot;http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-username-token-profile-1.0#PasswordText&quot;&gt;${jrcs_pwd}&lt;/wsse:Password&gt;&#xd;
+      &lt;/wsse:UsernameToken&gt;&#xd;
+    &lt;/wsse:Security&gt;&#xd;
+  &lt;/SOAP-ENV:Header&gt;  &#xd;
+  &lt;S:Body xmlns:ns2=&quot;http://cn.gov.chinatax.gt3nf.service/&quot;&gt;&#xd;
+    &lt;ns2:doService&gt;&#xd;
+      &lt;bizXml&gt;&lt;![CDATA[&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&#xd;
+&lt;tiripPackage version=&quot;1&quot; xsi:type=&quot;tiripPackage&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns=&quot;http://www.chinatax.gov.cn/dataspec/&quot;&gt;&#xd;
+    &lt;sessionId&gt;${sessionId}&lt;/sessionId&gt;&#xd;
+    &lt;service&gt;&#xd;
+        &lt;serviceId&gt;00.FP.FPXX.DZSWJCX.DZDZRZXXCX&lt;/serviceId&gt;&#xd;
+        &lt;clientNo&gt;99999999999&lt;/clientNo&gt;&#xd;
+        &lt;tranSeq&gt;${tranSeq}&lt;/tranSeq&gt;&#xd;
+        &lt;repeatFlag&gt;0&lt;/repeatFlag&gt;&#xd;
+        &lt;tranReqDate&gt;${__time(YMD,)}&lt;/tranReqDate&gt;&#xd;
+    &lt;/service&gt;&#xd;
+    &lt;identity&gt;&#xd;
+        &lt;application&gt;&#xd;
+            &lt;applicationId&gt;kfpt&lt;/applicationId&gt;&#xd;
+            &lt;supplier&gt;kfpt&lt;/supplier&gt;&#xd;
+            &lt;version&gt;1&lt;/version&gt;&#xd;
+            &lt;authenticateType&gt;2&lt;/authenticateType&gt;&#xd;
+            &lt;cert/&gt;&#xd;
+            &lt;password/&gt;&#xd;
+        &lt;/application&gt;&#xd;
+        &lt;customer&gt;&#xd;
+            &lt;customerId&gt;91110302562134916R&lt;/customerId&gt;&#xd;
+            &lt;authenticateType&gt;2&lt;/authenticateType&gt;&#xd;
+            &lt;password/&gt;&#xd;
+            &lt;cert/&gt;&#xd;
+            &lt;nsrsbh&gt;${yhzh}&lt;/nsrsbh&gt;&#xd;
+            &lt;djxh/&gt;&#xd;
+        &lt;/customer&gt;&#xd;
+    &lt;/identity&gt;&#xd;
+    &lt;contentControl/&gt;&#xd;
+    &lt;businessContent&gt;&#xd;
+        &lt;subPackage&gt;&#xd;
+            &lt;id&gt;1&lt;/id&gt;&#xd;
+            &lt;content&gt;{&#xd;
+  &quot;pagesize&quot;: &quot;10&quot;,&#xd;
+  &quot;currpage&quot;: &quot;1&quot;,&#xd;
+  &quot;prams&quot;: {&#xd;
+    &quot;fpdm&quot;: &quot;${FPDM}&quot;,&#xd;
+    &quot;fphm&quot;: &quot;${FPHM}&quot;,&#xd;
+    &quot;kprq&quot;: &quot;${KPRQ}&quot;,&#xd;
+    &quot;gfsbh&quot;: &quot;${GFSBH}&quot;,&#xd;
+    &quot;skssq&quot;: &quot;${skssq}&quot;,&#xd;
+    &quot;ywfqdm&quot;: &quot;${ywfqdm}&quot;&#xd;
+  }&#xd;
+}&lt;/content&gt;&#xd;
+        &lt;/subPackage&gt;&#xd;
+    &lt;/businessContent&gt;&#xd;
+&lt;/tiripPackage&gt;]]&gt;&lt;/bizXml&gt;&#xd;
+    &lt;/ns2:doService&gt;&#xd;
+  &lt;/S:Body&gt;&#xd;
+&lt;/S:Envelope&gt;&#xd;
+</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain"></stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path"></stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <JSR223PreProcessor guiclass="TestBeanGUI" testclass="JSR223PreProcessor" testname="设置交易流水号JSR223 PreProcessor" enabled="true">
+            <stringProp name="scriptLanguage">java</stringProp>
+            <stringProp name="parameters"></stringProp>
+            <stringProp name="filename"></stringProp>
+            <stringProp name="cacheKey">true</stringProp>
+            <stringProp name="script">import java.text.SimpleDateFormat;
+
+public long generate(int n) {
+    String temp = &quot;1&quot;;
+    for (int i = 1; i &lt; n; i++) {
+        temp += &quot;0&quot;;
+    }
+    long randomNumber2 = (long) ((Math.random() * 9 + 1) * Long.valueOf(temp));
+    return randomNumber2;
+}
+
+
+String jrcsUser = vars.get(&quot;jrcs_user&quot;);
+Date now = new Date();
+SimpleDateFormat simpleDateFormat = new SimpleDateFormat(&quot;yyyyMMdd&quot;);
+String nowDateStr = simpleDateFormat.format(now);
+String randomNumber1 = generate(14) + &quot;&quot;;
+long randomNumber2 = generate(8);
+
+String tranSeq = jrcsUser + randomNumber1 + &quot;00&quot; + nowDateStr + randomNumber2;
+vars.put(&quot;tranSeq&quot;,tranSeq);</stringProp>
+          </JSR223PreProcessor>
+          <hashTree/>
+          <JSR223PreProcessor guiclass="TestBeanGUI" testclass="JSR223PreProcessor" testname="处理发票信息-JSR223 PreProcessor" enabled="true">
+            <stringProp name="scriptLanguage">java</stringProp>
+            <stringProp name="parameters"></stringProp>
+            <stringProp name="filename"></stringProp>
+            <stringProp name="cacheKey">true</stringProp>
+            <stringProp name="script">String GF = &quot;0&quot;;//购方
+String XF = &quot;1&quot;;//销售方
+
+String gfsbh = vars.get(&quot;GFSBH&quot;);
+
+//发起方代码，暂时还没有校验，直接给纳税人识别号即可
+String ywfqdm = gfsbh;
+vars.put(&quot;ywfqdm&quot;, ywfqdm);
+//税控所属期，非必传参数
+vars.put(&quot;skssq&quot;,&quot;&quot;);</stringProp>
+          </JSR223PreProcessor>
+          <hashTree/>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="1088402475">请先登录</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.custom_message"></stringProp>
+            <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">6</intProp>
+          </ResponseAssertion>
+          <hashTree/>
+        </hashTree>
+        <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="查询结果树" enabled="true">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>false</xml>
+              <fieldNames>true</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+              <sentBytes>true</sentBytes>
+              <url>true</url>
+              <threadCounts>true</threadCounts>
+              <idleTime>true</idleTime>
+              <connectTime>true</connectTime>
+            </value>
+          </objProp>
+          <stringProp name="filename"></stringProp>
+        </ResultCollector>
+        <hashTree/>
+      </hashTree>
+    </hashTree>
+  </hashTree>
+</jmeterTestPlan>

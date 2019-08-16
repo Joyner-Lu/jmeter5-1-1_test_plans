@@ -1,0 +1,1 @@
+测试之前需要把lib里面的ext里面的相关jar包放入到jmeter的lib/ext下面
